@@ -8,7 +8,12 @@ import { CartProvider } from "./context/CartContext";
 
 // Temporary Orders page
 function Orders() {
-  return <h1 className="text-2xl font-bold mt-10">Your Orders</h1>;
+  return (
+    <div className="orders-page">
+      <h1>Your Orders</h1>
+      <p>Order history will appear here</p>
+    </div>
+  );
 }
 
 function App() {
@@ -16,14 +21,33 @@ function App() {
     <CartProvider>
       <Router>
         <Navbar />
-        <div className="container mx-auto px-6 py-8">
-          <Routes>
-            <Route path="/" element={<HeroBanner />} />
-            <Route path="/products" element={<ProductList />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/orders" element={<Orders />} />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/" element={<HeroBanner />} />
+          <Route
+            path="/products"
+            element={
+              <div className="container mx-auto px-6 py-8">
+                <ProductList />
+              </div>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <div className="container mx-auto px-6 py-8">
+                <Cart />
+              </div>
+            }
+          />
+          <Route
+            path="/orders"
+            element={
+              <div className="container mx-auto px-6 py-8">
+                <Orders />
+              </div>
+            }
+          />
+        </Routes>
       </Router>
     </CartProvider>
   );

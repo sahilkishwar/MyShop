@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/MyShop/static/css/main.4bd36e2d.css",
-    "main.js": "/MyShop/static/js/main.27566edb.js",
+    "main.js": "/MyShop/static/js/main.86989d2f.js",
     "static/media/watch.png": "/MyShop/static/media/watch.ff5839b499740ec4d12b.png",
     "static/media/shoes.png": "/MyShop/static/media/shoes.cbf68017cffbacefd1f2.png",
     "static/media/tshirt.png": "/MyShop/static/media/tshirt.e70d74ebd0d873861022.png",
     "index.html": "/MyShop/index.html",
     "main.4bd36e2d.css.map": "/MyShop/static/css/main.4bd36e2d.css.map",
-    "main.27566edb.js.map": "/MyShop/static/js/main.27566edb.js.map"
+    "main.86989d2f.js.map": "/MyShop/static/js/main.86989d2f.js.map"
   },
   "entrypoints": [
     "static/css/main.4bd36e2d.css",
-    "static/js/main.27566edb.js"
+    "static/js/main.86989d2f.js"
   ]
 }

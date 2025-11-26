@@ -1,38 +1,201 @@
-.product-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+.product-list-container {
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 20px;
 }
 
 .product-card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 15px;
-  width: 220px;
-  text-align: center;
-  background-color: #f8f9fa;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+  transform: translateY(-15px);
+  border-color: rgba(147, 112, 219, 0.5);
+  box-shadow: 0 25px 60px rgba(147, 112, 219, 0.4),
+              0 0 40px rgba(102, 51, 153, 0.2);
+  background: linear-gradient(135deg, rgba(147, 112, 219, 0.1) 0%, rgba(75, 0, 130, 0.08) 100%);
 }
 
-.product-card h3 {
-  color: #343a40;
-  margin-bottom: 10px;
+.product-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.product-card p {
-  color: #495057;
-  margin: 5px 0;
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.product-card .price {
-  font-weight: bold;
-  color: #0d6efd;
-  margin-top: 10px;
+.product-card:hover .product-image {
+  transform: scale(1.15) rotate(2deg);
+}
+
+.overlay-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(102, 51, 153, 0.3);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.product-content {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.product-card:hover .product-name {
+  color: #b19cd9;
+}
+
+.product-category {
+  font-size: 12px;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.product-price {
+  font-size: 26px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 18px;
+}
+
+.btn-purchase {
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 25px rgba(102, 51, 153, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-purchase:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(102, 51, 153, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.btn-purchase:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.btn-purchase span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .product-card {
+    border-radius: 16px;
+  }
+
+  .product-image-wrapper {
+    height: 180px;
+  }
+
+  .product-content {
+    padding: 18px;
+  }
+
+  .product-name {
+    font-size: 16px;
+  }
+
+  .product-price {
+    font-size: 22px;
+  }
+
+  .btn-purchase {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-list-container {
+    padding: 20px 10px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

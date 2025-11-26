@@ -19,11 +19,37 @@ const products = [
 function ProductList() {
   const { addToCart } = useContext(CartContext);
   const inr = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR" });
+  const [query, setQuery] = React.useState("");
+
+  const filtered = products.filter((p) => {
+    if (!query) return true;
+    const q = query.toLowerCase();
+    return (
+      p.name.toLowerCase().includes(q) ||
+      (p.category && p.category.toLowerCase().includes(q))
+    );
+  });
 
   return (
     <div className="product-list-container">
+      <div className="product-list-header">
+        <input
+          className="product-search-input"
+          type="search"
+          placeholder="Search products, categories..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button
+          className="product-search-button"
+          onClick={() => { /* button triggers same filtering already done by controlled input */ }}
+        >
+          🔍
+        </button>
+      </div>
+
       <div className="product-grid">
-        {products.map((product, index) => (
+        {filtered.map((product, index) => (
           <div
             key={product.id}
             className="product-card"

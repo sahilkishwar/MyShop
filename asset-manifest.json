@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/MyShop/static/css/main.cc28a47a.css",
+    "main.js": "/MyShop/static/js/main.903990fc.js",
+    "static/media/watch.png": "/MyShop/static/media/watch.ff5839b499740ec4d12b.png",
+    "static/media/shoes.png": "/MyShop/static/media/shoes.cbf68017cffbacefd1f2.png",
+    "static/media/tshirt.png": "/MyShop/static/media/tshirt.e70d74ebd0d873861022.png",
+    "index.html": "/MyShop/index.html",
+    "main.cc28a47a.css.map": "/MyShop/static/css/main.cc28a47a.css.map",
+    "main.903990fc.js.map": "/MyShop/static/js/main.903990fc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cc28a47a.css",
+    "static/js/main.903990fc.js"
+  ]
+}
